@@ -20,11 +20,15 @@ def check_user(request):
     if rare_user is not None:
         data = {
             'id': rare_user.id,
+            'first_name': rare_user.first_name,
+            'last_name': rare_user.last_name,
             'bio': rare_user.bio,
             'profile_image_url': rare_user.profile_image_url,
+            'email': rare_user.email,
             'created_on': rare_user.created_on,
             'active': rare_user.active,
-            'uid': rare_user.uid
+            'is_staff': rare_user.is_staff,
+            'uid': rare_user.uid,
         }
         return Response(data)
     else:
@@ -44,20 +48,28 @@ def register_user(request):
     # Now save the user info in the levelupapi_gamer table
     rare_user = RareUser.objects.create(
         # id=request.data['id'],
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name'],
         bio=request.data['bio'],
         profile_image_url=request.data['profile_image_url'],
+        email=request.data['email'],
         created_on=request.data['created_on'],
         active=request.data['active'],
+        is_staff=request.data['is_staff'],
         uid=request.data['uid']
     )
 
     # Return the gamer info to the client
     data = {
         'id': rare_user.id,
+        'first_name': rare_user.first_name,
+        'last_name': rare_user.last_name,
         'bio': rare_user.bio,
         'profile_image_url': rare_user.profile_image_url,
+        'email': rare_user.email,
         'created_on': rare_user.created_on,
         'active': rare_user.active,
+        'is_staff': rare_user.is_staff,
         'uid': rare_user.uid,
     }
     return Response(data)
