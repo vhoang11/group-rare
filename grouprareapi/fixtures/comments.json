@@ -1,0 +1,32 @@
+[
+  {
+      "model": "grouprareapi.event",
+      "pk": 1,
+      "fields": {
+          "author_id": 1,
+          "post_id": 1,
+          "content": "I am a guinea pig",
+          "created_on": "May 1st, 17:30"
+      }
+  },
+  {
+    "model": "grouprareapi.event",
+    "pk": 2,
+    "fields": {
+      "author_id": 2,
+      "post_id": 2,
+      "content": "I am also a guinea pig",
+      "created_on": "May 2nd, 18:30"
+  }
+  },
+  {
+    "model": "grouprareapi.event",
+    "pk": 3,
+    "fields": {
+      "author_id": 3,
+      "post_id": 3,
+      "content": "What is a guinea pig?",
+      "created_on": "May 3rd, 19:30"
+  }
+  }
+]

@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from grouprareapi.views import register_user, check_user
+from grouprareapi.views import register_user, check_user, CommentView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'comments', CommentView, 'comment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
