@@ -1,0 +1,22 @@
+[
+  {
+      "model": "grouprareapi.category",
+      "pk": 1,
+      "fields": {
+          "label": "Food"
+        }
+  },
+  {
+      "model": "grouprareapi.category",
+      "pk": 2,
+      "fields": {
+          "label": "Music"
+      }
+},{
+      "model": "grouprareapi.category",
+      "pk": 3,
+      "fields": {
+          "label": "Lifestyle"
+      }
+}
+]
