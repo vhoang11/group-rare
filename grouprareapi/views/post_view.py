@@ -36,7 +36,7 @@ class PostView(ViewSet):
     def create(self, request):
  
        
-        rUserId = RareUser.objects.get(pk=request.data["rareUserId"])
+        rUserId = RareUser.objects.get(uid=request.data["rareUserId"])
         catId = Category.objects.get(pk=request.data["categoryId"])
 
         post = Post.objects.create(
@@ -61,7 +61,7 @@ class PostView(ViewSet):
         post.content=request.data["content"]
         post.approved=request.data["approved"]
         category_id= Category.objects.get(pk=request.data["categoryId"])
-        rare_user_id = RareUser.objects.get(pk=request.data["rareUserId"])
+        rare_user_id = RareUser.objects.get(uid=request.data["rareUserId"])
         
        
 
