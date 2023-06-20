@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from grouprareapi.views import CategoryView
-from grouprareapi.views import register_user, check_user
-from grouprareapi.views import PostView
+
+from grouprareapi.views import register_user, check_user, CategoryView, CommentView, PostView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'comments', CommentView, 'comment')
 router.register(r'posts', PostView, 'post')
 router.register(r'categories', CategoryView, 'category')
 
