@@ -40,7 +40,7 @@ class CommentView(ViewSet):
         comment.author_id = RareUser.objects.get(pk=request.data["author_id"])
         comment.post_id_id = Post.objects.get(pk=request.data["post_id"])
         comment.content = request.data["content"]
-        comment.created_on = request.data["createdOn"]
+        comment.created_on = request.data["created_on"]
         comment.save()
         return Response('Comment edited', status=status.HTTP_200_OK)
     
