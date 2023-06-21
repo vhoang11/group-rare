@@ -19,12 +19,13 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 
-from grouprareapi.views import register_user, check_user, CategoryView, CommentView, PostView
+from grouprareapi.views import register_user, check_user, CategoryView, CommentView, PostView, RareUserView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'comments', CommentView, 'comment')
 router.register(r'posts', PostView, 'post')
 router.register(r'categories', CategoryView, 'category')
+router.register(r'users', RareUserView, 'user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
