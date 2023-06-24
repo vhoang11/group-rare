@@ -60,8 +60,8 @@ class PostView(ViewSet):
         post.image_url=request.data["imageUrl"]
         post.content=request.data["content"]
         post.approved=request.data["approved"]
-        category_id= Category.objects.get(pk=request.data["categoryId"])
-        rare_user_id = RareUser.objects.get(uid=request.data["rareUserId"])
+        post.category_id= Category.objects.get(pk=request.data["categoryId"])
+        post.rare_user_id = RareUser.objects.get(uid=request.data["rareUserId"])
         
        
 
