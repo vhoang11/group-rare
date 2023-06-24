@@ -8,4 +8,9 @@ class Comment(models.Model):
     post_id = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
     created_on = models.DateTimeField()
+    
+    @property
+    def commenter_name(self):
+        '''Custom Property to get the commenter name'''
+        return f'{self.author_id.first_name} {self.author_id.last_name}'
   
