@@ -12,14 +12,14 @@ class CommentView(ViewSet):
     def create(self, request):
         """CREATE Comment
         """
+        # rUserId = RareUser.objects.get(uid=request.data["rareUserId"])
         author_id = RareUser.objects.get(pk=request.data["authorId"])
         post_id = Post.objects.get(pk=request.data["postId"])
-        created_on = datetime.strptime(request.data["createdOn"], "%B %d, %Y, %I:%M%p")
         comment = Comment.objects.create(
             author_id=author_id,
             post_id=post_id,
             content=request.data["content"],
-            created_on=created_on,
+            created_on=datetime.now(),
         )
         serializer = CommentSerializer(comment)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -58,4 +58,4 @@ class CommentSerializer(serializers.ModelSerializer):
     created_on = serializers.DateTimeField(format="%B %d, %Y, %I:%M%p")
     class Meta:
         model = Comment
-        fields = ('id', 'author_id', 'post_id', 'content', 'created_on')
+        fields = ('id', 'author_id', 'post_id', 'content', 'created_on', 'commenter_name')
